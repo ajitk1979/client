@@ -31,8 +31,8 @@ const MpinSetup = () => {
         setLoading(true);
         try {
             await axios.post(`${API_BASE_URL}/api/auth/setup-mpin`, { mobile, mpin });
-            alert('Security PIN established successfully!');
-            navigate('/login'); // Redirect to login or home
+            // alert('Security PIN established successfully!');
+            navigate('/mpin-login', { state: { mobile } });
         } catch (err) {
             setError(err.response?.data?.error || 'Failed to set PIN');
         } finally {

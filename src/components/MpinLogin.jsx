@@ -31,7 +31,15 @@ const MpinLogin = () => {
         }
     };
 
-    if (!mobile) return <div className="page-container glass">Invalid Session</div>;
+    if (!mobile) {
+        return (
+            <div className="page-container glass" style={{ textAlign: 'center', padding: '2rem' }}>
+                <h3>Session Expired</h3>
+                <p>Please login again.</p>
+                <button className="primary-btn" onClick={() => navigate('/login')}>Go to Login</button>
+            </div>
+        );
+    }
 
     return (
         <div className="page-container fade-in">
